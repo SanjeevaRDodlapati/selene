@@ -2,7 +2,7 @@
 ops: [train, evaluate]
 model: {
     # TODO: update this line with the absolute path to the file.
-    path: <ABSOLUTE_PATH>/tutorials/getting_started_with_selene/deeperdeepsea.py,
+    path: /home/sdodlapa/selene/selene_quickstart_tutorial/deeperdeepsea.py,
     class: DeeperDeepSEA,
     class_args: {
         sequence_length: 1000,
@@ -14,13 +14,13 @@ sampler: !obj:selene_sdk.samplers.IntervalsSampler {
     reference_sequence: !obj:selene_sdk.sequences.Genome {
         # we include relative paths here, but we recommend using absolute
         # paths for future configuration files
-        input_path: ./male.hg19.fasta
+        input_path: /home/sdodlapa/selene/selene_quickstart_tutorial/male.hg19.fasta
     },
     features: !obj:selene_sdk.utils.load_features_list {
-        input_path: ./distinct_features.txt
+        input_path: /home/sdodlapa/selene/selene_quickstart_tutorial/distinct_features.txt
     },
-    target_path: ./sorted_GM12878_CTCF.bed.gz,
-    intervals_path: ./deepsea_TF_intervals.txt,
+    target_path: /home/sdodlapa/selene/selene_quickstart_tutorial/sorted_GM12878_CTCF.bed.gz,
+    intervals_path: /home/sdodlapa/selene/selene_quickstart_tutorial/deepsea_TF_intervals.txt,
     seed: 127,
     # A positive example is an 1000bp sequence with at least 1 class/feature annotated to it.
     # A negative sample has no classes/features annotated to the sequence.
@@ -47,6 +47,6 @@ train_model: !obj:selene_sdk.TrainModel {
 }
 random_seed: 1447
 output_dir: ./training_outputs
-create_subdirectory: False
-load_test_set: False
+create_subdirectory: True
+load_test_set: True
 ...
